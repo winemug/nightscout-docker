@@ -7,10 +7,10 @@ RUN cd && cp -R .bashrc .profile /home/node
 RUN npm install n -g
 RUN n stable
 
-RUN chown -R node:node /home/node
 USER node
 ENV HOME /home/node
 WORKDIR /home/node/app
+RUN chown -R node:node /home/node
 
 RUN git clone https://github.com/nightscout/cgm-remote-monitor.git /home/node/app
 RUN git checkout dev
